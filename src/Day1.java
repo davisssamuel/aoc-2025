@@ -14,17 +14,15 @@ void main(String[] args) throws Exception {
         int clicks = Integer.parseInt(line.substring(1));
         int delta = (line.charAt(0) == 'L') ? -clicks : clicks;
 
-        int old = pos;
-        pos = (pos + delta) % 100;
-        if (pos == 0) zeroCount++;
+        // Part 1
+        // if (pos == 0) zeroCount++;
+        // pos = (pos + delta) % 100;
 
-        // Part 2 - I have no idea what I'm doing wrong at this point
-        double crosses = Math.abs(delta) / 100;
-        if (crosses < 1 && ((old > 0 && pos < 0) || (old < 0 && pos > 0))) {
-            zeroCount++;
-        } else {
-            zeroCount += Math.floor(crosses);
-        }
+        // Part 2
+        int old = pos;
+        pos = (((pos + delta) % 100) + 100) % 100;
+        int crossed = Math.floorDiv((old + delta - pos), 100);
+        zeroCount += Math.abs(crossed);
     }
 
     IO.println(zeroCount);
