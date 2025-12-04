@@ -19,13 +19,16 @@ if __name__ == "__main__":
             #     zero_count += 1
 
             # Part 2
-            for _ in range(clicks):
-                if delta > 0:
-                    pos = (pos + 1) % 100
-                else:
-                    pos = (pos - 1) % 100
+            start = pos
+            pos = (pos + delta) % 100
 
-                if pos == 0:
-                    zero_count += 1
+            if pos == 0:
+                zero_count += 1
+            elif delta > 0 and pos < start:
+                zero_count += 1
+            elif start != 0 and delta < 0 and pos > start:
+                zero_count += 1
+
+            zero_count += clicks // 100
 
     print(zero_count)

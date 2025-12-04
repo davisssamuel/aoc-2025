@@ -12,21 +12,23 @@ void main(String[] args) throws Exception {
         int clicks = Integer.parseInt(line.substring(1));
         int delta = (line.charAt(0) == 'L') ? -clicks : clicks;
 
-        int start = pos;
-
         // Part 1
-        pos = (pos + delta) % 100;
-        if (pos == 0) zeroCount++;
+        // pos = Math.floorMod(pos + delta, 100);
+        // if (pos == 0) zeroCount++;
 
         // Part 2
-        double cycles = clicks / 100.0;
-        if (cycles < 1 &&
-            ((delta > 0 && pos < start) || (delta < 0 && pos > start))) {
+        int start = pos;
+        pos = Math.floorMod(pos + delta, 100);
+
+        if (pos == 0) {
+            zeroCount++;
+        } else if (delta > 0 && pos < start) {
+            zeroCount++;
+        } else if (start != 0 && delta < 0 && pos > start) {
             zeroCount++;
         }
-        zeroCount += Math.floor(cycles);
+        zeroCount += Math.floorDiv(clicks, 100);
     }
 
-    IO.println("Expected: 7199");
-    IO.println("Actual: " + zeroCount);
+    IO.println(zeroCount);
 }
