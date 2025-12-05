@@ -1,11 +1,13 @@
-This project uses Java 25's [Compact Source Files](https://openjdk.org/jeps/512). To easily run a specific day's code, use:
+The directory for each day contains both the example input file, the actual input file, and the code solution. To easily run a specific day's solution, use:
 
 ```
-java src/<day> inputs/<input>
+python3 run.py <day> <input_file>
 ```
 
 For example:
 
 ```
-java src/Day1.java inputs/day1.txt
+python3 run.py 1 example.txt
 ```
+
+NOTE: by default, if no input file is specified, the day's solution will run on input.txt.
