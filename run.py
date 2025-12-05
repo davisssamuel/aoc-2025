@@ -4,7 +4,7 @@ from pathlib import Path
 
 def main():
     if len(sys.argv) < 2:
-        print("Usage: python run.py <day> <file>")
+        print("Usage: python3 run.py <day> <file>")
         sys.exit(1)
 
     day_num = int(sys.argv[1])
