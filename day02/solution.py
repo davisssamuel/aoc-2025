@@ -1,10 +1,10 @@
 from math import floor, log10
 
-from utils import load_lines
+from utils import read_lines
 
 
 def main(input_path):
-    lines = load_lines(input_path)
+    lines = read_lines(input_path)
     part1_count = 0
     ranges = lines[0].split(",")
 

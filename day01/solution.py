@@ -1,8 +1,8 @@
-from utils import load_lines
+from utils import read_lines
 
 
 def main(input_path):
-    lines = load_lines(input_path)
+    lines = read_lines(input_path)
     pos = 50
     part1_count = 0
     part2_count = 0
